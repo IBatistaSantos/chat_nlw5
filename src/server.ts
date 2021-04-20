@@ -1,6 +1,7 @@
 import express from 'express';
 import './database';
-
+import { router } from './routes';
 const app = express();
 app.use(express.json());
-app.listen(3333, () => console.log('Server run on port 3333'));
+app.use(router);
+app.listen(8080, () => console.log('Server run on port 8080 '));
