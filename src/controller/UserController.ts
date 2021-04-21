@@ -1,7 +1,4 @@
 import { Request, Response } from 'express';
-import { getCustomRepository } from 'typeorm';
-import { SettingsRepository } from '../repositories/SettingsRepository';
-import { CreateSettingsUseCase } from '../useCase/createSetting/CreateSettingUseCase';
 import { CreateUserUseCase } from '../useCase/createUser/CreateUserUseCase';
 
 class UserController {

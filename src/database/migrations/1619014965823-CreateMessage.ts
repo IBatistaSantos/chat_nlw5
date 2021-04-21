@@ -37,7 +37,7 @@ export class CreateMessage1619014965823 implements MigrationInterface {
             referencedColumnNames: ['id'],
             columnNames: ['user_id'],
             onDelete: 'SET NULL',
-            onUpdate: 'CASCADE',
+            onUpdate: "CASCADE"
           },
         ],
       })

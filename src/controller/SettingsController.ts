@@ -1,6 +1,4 @@
 import { Request, Response } from 'express';
-import { getCustomRepository } from 'typeorm';
-import { SettingsRepository } from '../repositories/SettingsRepository';
 import { CreateSettingsUseCase } from '../useCase/createSetting/CreateSettingUseCase';
 
 class SettingsController {
