@@ -16,15 +16,25 @@ class CreateConnectionUseCase {
     id,
   }: ICreateConnection): Promise<Connection> {
     const connectionRepository = getCustomRepository(ConnectionsRepository);
-    const connection = connectionRepository.create({
-      socket_id,
-      user_id,
-      admin_id,
-      id,
-    });
 
-    await connectionRepository.save(connection);
-    return connection;
+    const connectionExists = await connectionRepository.findOne({ user_id });
+
+    if (connectionExists) {
+      connectionExists.socket_id = socket_id;
+      connectionRepository.create(connectionExists);
+      await connectionRepository.save(connectionExists);
+      return connectionExists;
+    } else {
+      const connection = connectionRepository.create({
+        socket_id,
+        user_id,
+        admin_id,
+        id,
+      });
+
+      await connectionRepository.save(connection);
+      return connection;
+    }
   }
 }
 

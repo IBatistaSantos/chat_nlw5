@@ -3,9 +3,9 @@ import { Message } from '../../entities/Message';
 import { MessageRepository } from '../../repositories/MessageRepository';
 
 interface ICreateMessager {
-  user_id?: string;
-  admin_id: string;
+  user_id: string;
   text: string;
+  admin_id?: string;
 }
 class CreateMessageUseCase {
   async execute({
